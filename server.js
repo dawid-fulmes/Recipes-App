@@ -17,6 +17,9 @@ db.once("open", () => {
 app.use(cors());
 app.use(bodyParser.json());
 
+//Routers
+app.use("/api/recipes", require("./routes/recipes"));
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
