@@ -8,4 +8,10 @@
 
 html {
     font-family: arial, sans-serif;
+    background-color: #E6E6E6;
 }
+
+@import './_container';
+@import './_page-wrapper';
+@import './_header';
+@import './_footer'
