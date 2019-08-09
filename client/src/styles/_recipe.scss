@@ -1,0 +1,45 @@
+.recipe {
+
+    &__picture-box {
+        border: 1px solid #000;
+        position: relative;
+        height: 150px;
+        overflow: hidden;
+        color: white;
+    }
+
+    &__img {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        height: auto;
+    }
+
+    &__detail-box {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        transition: opacity 0.5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &:hover &__detail-box {
+        opacity: 1;
+    }
+
+    &__title {
+        padding: 3px;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}
