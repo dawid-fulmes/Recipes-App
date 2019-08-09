@@ -1,26 +1,22 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getRecipes } from "../../store/actions";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Spinner from "react-spinkit";
+import RecipesList from "./RecipesList/RecipesList";
 
 const MainPage = ({ recipes, loading, error, getRecipes }) => {
   useEffect(() => {
     getRecipes();
   }, [getRecipes]);
 
-  let output = (
-    <ul>
-      {recipes.map(({ name, _id }) => (
-        <li key={_id}>{name}</li>
-      ))}
-    </ul>
-  );
-
   if (error) {
-    output = <p>something went wrong</p>;
+    return <ErrorMessage againClick={getRecipes} />;
   } else if (loading) {
-    output = <p>Loading...</p>;
+    return <Spinner name="three-bounce" color="black" fadeIn="none" />;
+  } else {
+    return <RecipesList recipes={recipes} />;
   }
-  return <div>{output}</div>;
 };
 
 const mapStateToProps = state => ({
