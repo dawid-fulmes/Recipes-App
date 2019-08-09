@@ -8,6 +8,7 @@ const Recipe = new Schema({
   difficulty: Number,
   time: Number,
   servings: Number,
+  imgUrl: String,
 });
 
 module.exports = mongoose.model("Recipe", Recipe);
