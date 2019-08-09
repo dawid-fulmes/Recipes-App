@@ -24,7 +24,9 @@ export const getRecipes = () => {
     dispatch(getRecipesStart());
     axios
       .get("api/recipes")
-      .then(recipes => dispatch(getRecipesSuccess(recipes)))
+      .then(({ data }) => {
+        dispatch(getRecipesSuccess(data));
+      })
       .catch(err => dispatch(getRecipesFail(err)));
   };
 };
