@@ -3,8 +3,16 @@ import { connect } from "react-redux";
 
 import { getRecipes } from "../../store/actions";
 import ErrorAndLoading from "../../hoc/ErrorAndLoading/ErrorAndLoading";
+import RecipeDetails from "./RecipeDetails/RecipeDetails";
 
-const RecipePage = ({ match, recipes, loading, error, getRecipes }) => {
+const RecipePage = ({
+  match,
+  history,
+  recipes,
+  loading,
+  error,
+  getRecipes,
+}) => {
   const [recipe] = recipes.filter(({ _id }) => _id === match.params.id);
   useEffect(() => {
     if (!recipe) {
@@ -12,14 +20,23 @@ const RecipePage = ({ match, recipes, loading, error, getRecipes }) => {
     }
   }, [getRecipes, recipe]);
 
-  let output = <div>There is recipe!!!!</div>;
+  let output = <RecipeDetails {...recipe} />;
+  let className = "recipe-page";
   if (!recipe) {
-    output = <div>There is NO recipe :(</div>;
+    className += " recipe-page--no-recipe";
+    output = (
+      <p className="recipe-page__message">There is no recipe in database :(</p>
+    );
   }
 
   return (
     <ErrorAndLoading error={error} loading={loading} againClick={getRecipes}>
-      {output}
+      <div className={className}>
+        {output}
+        <button className="button" onClick={() => history.push("/")}>
+          Go back to List
+        </button>
+      </div>
     </ErrorAndLoading>
   );
 };

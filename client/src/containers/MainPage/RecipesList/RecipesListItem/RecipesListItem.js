@@ -8,7 +8,11 @@ const RecipesListItem = ({ _id, name, difficulty, time, servings, imgUrl }) => {
     <Link to={`/${_id}`}>
       <li className="recipe">
         <div className="recipe__picture-box">
-          <Img className="recipe__img" src={imgUrl} alt="Img of recipe" />
+          <Img
+            className="recipe__img"
+            src={imgUrl}
+            alt={`Picture of ${name}`}
+          />
           <div className="recipe__detail-box">
             <p>Difficulty: {difficulty}/5</p>
             <p>Time complexity: {time} min</p>
