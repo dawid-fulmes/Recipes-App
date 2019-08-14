@@ -1,0 +1,15 @@
+.picture-box {
+    border: 1px solid #000;
+    position: relative;
+    overflow: hidden;
+
+    &__img {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        height: auto;
+    }
+}

@@ -1,21 +1,8 @@
 .recipe {
 
     &__picture-box {
-        border: 1px solid #000;
-        position: relative;
         height: 150px;
-        overflow: hidden;
         color: white;
-    }
-
-    &__img {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        transform: translate(-50%, -50%);
-        height: auto;
     }
 
     &__detail-box {
